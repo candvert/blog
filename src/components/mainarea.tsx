@@ -31,16 +31,9 @@ async function ok(filename: string) {
 
 export function MainArea() {
   return (
-    <div className="overflow-x-hidden">
-      <div className="">
+    <div className="">
+      <div className="pt-8 text-2xl text-gray-600 font-bold">
         点击左侧文件开始阅读
-        <Image
-          src="/Snipaste_2025-07-23_17-01-52.png"
-          width={1000}
-          height={760}
-          className="hidden md:block"
-          alt="Screenshots of the dashboard project showing desktop version"
-        />
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ export default function LeftSidebar() {
             !file.endsWith(".md") ? (
               <CollapsibleTrigger
                 key={file}
-                className="bg-gray-100 w-48 text-start my-4 rounded-xl indent-2.5"
+                className="bg-gray-100 w-48 text-start my-4 rounded-4xl indent-2.5 p-0.5"
               >
                 {file}
               </CollapsibleTrigger>

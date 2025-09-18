@@ -28,7 +28,7 @@ body {
 pre {
   overflow-x: auto;
   padding: 1rem 0;
-  border-radius: 0.75rem;
+  border-radius: 1.25rem;
   font-size: 16px;
 }
 
@@ -42,4 +42,14 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   scroll-margin-top: 56px;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
+
+[data-theme='dark'] button {
+  color: #fff;
+  background: #3436359a;
 }
