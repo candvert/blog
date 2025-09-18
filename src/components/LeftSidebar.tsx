@@ -9,7 +9,7 @@ import path from "path";
 
 export default function LeftSidebar() {
   return (
-      <div className="md:flex-none md:w-80 md:block w-full overflow-auto scroll-smooth scrollbar-hide h-svh md:pl-8 pl-2 pt-4">
+      <div className="md:flex-none md:w-80 md:block w-full overflow-auto scroll-smooth scrollbar-hide h-svh md:pl-8 px-2 pt-4">
         {filesName().map((files) => (
           <Collapsible
             defaultOpen={false}

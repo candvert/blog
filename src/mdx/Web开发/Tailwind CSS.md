@@ -1,5 +1,5 @@
 ## flex布局和grid布局
-```
+```sh
 flex​​ 擅长在​​一个方向​​（水平或垂直）上排列和对齐元素，它让元素具有弹性，能根据可用空间动态调整大小和顺序。它非常适合处理​​组件内部的布局
 
 grid​​ 则是一个​​二维系统​​，它允许你同时定义​​行和列​​，从而实现对整体结构的精确控制。它非常适合用于构建​​页面的宏观骨架和复杂的二维布局​​
@@ -8,7 +8,7 @@ grid​​ 则是一个​​二维系统​​，它允许你同时定义​​
 这种分工使代码逻辑更清晰。修改整体布局时，只需调整 grid；修改组件内部结构时，只需调整 flex，两者耦合度低，更易于维护和扩展。
 ```
 实现该布局：
-![[tailwind_3.png]]
+![](/images/tailwind_3.png)
 ```ts
 // main 标签中的 flex-1 是必须的。flex-1 允许 flex item 根据需要增大或缩小，忽略其初始大小
 <div className="flex flex-col min-h-screen">
@@ -26,7 +26,7 @@ grid​​ 则是一个​​二维系统​​，它允许你同时定义​​
 </div>
 ```
 实现该布局：
-![[tailwind_5.png]]
+![](/images/tailwind_5.png)
 ```ts
 <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4">
   <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full max-w-4xl h-96">
@@ -53,9 +53,9 @@ data-[slot=separator]​​: 这是一个​​属性选择器​​。它匹配
 ```
 ## 移除文字覆盖
 导航栏没有设置 bg-background
-![[tailwind_1.png]]
+![](/images/tailwind_1.png)
 导航栏设置 bg-background
-![[tailwind_2.png]]
+![](/images/tailwind_2.png)
 
 ```js
 在global.css中添加
@@ -127,11 +127,15 @@ top-0
 border-b
 border-l
 
+// 剪切所有超出容器宽度的内容
+overflow-x-hidden
+
 // flex，使用时要这样使用 flex justify-center items-center
 // flex-row 和 flex-col 必须和 flex 一起使用才会生效，也就是class="flex flex-row"
 // flex-1 可以单独使用，不需要和 flex 一起使用就能生效
 // flex 默认每个元素有一个 min-height，可以使用 min-h-0 来覆盖默认，允许元素尺寸小于内容
 // class="flex" 和 class="flex flex-row" 效果相同，默认为横向排列
+// flex 项目的默认 flex-shrink 值为 1，允许其收缩
 // 所有元素水平排列
 flex-row
 // 所有元素垂直排列
@@ -149,6 +153,8 @@ justify-evenly
 justify-between
 // 允许 flex item 根据需要增大或缩小，忽略其初始大小，可用于某一元素占据所有剩余空间
 flex-1
+// 不允许 flex item 增大或缩小，可用于 w-60 这种固定宽度
+flex-none
 // content-<xxx> 多行如何在垂直方向分布
 content-start
 content-center

@@ -11,35 +11,6 @@
 - [layout文件](#layout文件)
 
 - [处理md/mdx文件](#处理md/mdx文件)
-解析 Frontmatter (YAML格式的元数据)
-npm install remark-frontmatter
-
-从 Frontmatter 中提取数据
-npm install remark-mdx-frontmatter
-
-生成文章目录（TOC）
-npm install remark-toc
-
-代码语法高亮（这是目前最流行、效果最好的选择）
-npm install rehype-highlight
-或者使用 Shiki（效果更佳，但包体积稍大）
-npm install rehype-shiki
-生成文章目录（TOC）
-npm install remark-toc
-
-npm install remark-gfm
-
-允许在 MDX 中使用 HTML
-npm install rehype-raw
-
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
-
-
-
 
 nextjs 具有基于文件的路由，基于文件的 api （即GET，POST等请求），基于文件的 MD/MDX （将 md/mdx 文件解析为组件并显示）
 ## 添加自定义字体next/font
@@ -90,17 +61,17 @@ export default function Page() {
 ```
 ## 文件系统路由Routes
 Next.js 使用文件系统路由，其中​​文件夹用于创建嵌套路由。每个文件夹代表一个映射到 URL 段的路由段。
-![[nextjs1.avif]]
+![](/images/nextjs1.avif)
 您可以使用 layout.tsx 和 page.tsx 文件为每条路线创建单独的 UI。
 page.tsx 是一个特殊的 Next.js 文件，它导出一个 React 组件，并且它是让路由可访问所必需的。
-![[nextjs2.avif]]
+![](/images/nextjs2.avif)
 /app/dashboard/page.tsx 与 /dashboard 路径关联。
 ```typescript
 // Next.js的路由使用文件夹表示的，要使路由可以访问，则该文件夹下必须要有page.tsx文件
 ```
 
 在 Next.js 中，您可以使用特殊的 layout.tsx 文件来创建多个页面共享的 UI。也就是说下面的 page.tsx、customers/page.tsx、invoices/page.tsx 这三个页面共享布局  layout.tsx，可以在该布局中添加诸如导航栏，侧边栏等组件。
-![[nextjs3.avif]]
+![](/images/nextjs3.avif)
 <Layout /> 组件（即 layout.tsx 文件）接收一个 children prop。这个子组件可以是一个页面，也可以是另一个布局。
 /app/layout.tsx 称为根布局，每个 Next.js 应用程序都需要它。添加到根布局的任何 UI 都将在应用程序的所有页面之间共享。
 ## 文件系统api
@@ -193,7 +164,7 @@ SEO - 预渲染内容更容易被搜索引擎爬虫索引，因为页面加载�
 
 
 流式传输是一种数据传输技术，它允许您将路由分解为更小的“块”，并在它们准备就绪时逐步将它们从服务器流式传输到客户端。
-![[nextjs4.avif]]
+![](/images/nextjs4.avif)
 通过流式传输，您可以防止缓慢的数据请求阻塞整个页面。这使得用户能够查看页面的各个部分并进行交互，而无需等待所有数据加载完毕后再向用户显示任何 UI。
 流式传输与 React 的组件模型配合良好，因为每个组件都可以被视为一个块。
 在 Next.js 中，有两种实现流式传输的方式： 
@@ -203,7 +174,7 @@ SEO - 预渲染内容更容易被搜索引擎爬虫索引，因为页面加载�
 loading.tsx 是一个基于 React Suspense 构建的特殊 Next.js 文件。它允许你创建备用 UI，以便在页面内容加载时替代显示。您在loading.tsx中添加的任何UI都将作为静态文件的一部分嵌入，并首先发送。然后，其余的动态内容将从服务器流式传输到客户端。
 ## Route groups
 在 dashboard 文件夹内创建一个名为 /(overview) 的新文件夹。然后将你的loading.tsx 和 page.tsx 文件移动到该文件夹​​中：
-![[nextjs5.avif]]
+![](/images/nextjs5.avif)
 Route groups允许您将文件组织成逻辑组，而不会影响 URL 路径结构。当您使用括号 () 创建新文件夹时，其名称不会包含在 URL 路径中。因此，/dashboard/(overview)/page.tsx 会变成 /dashboard。
 ## React Suspense
 您还可以使用 React Suspense 更加细粒度地传输特定组件。
@@ -362,7 +333,7 @@ export default function Page() {
 // rehype-stringify 将语法树作为输入并将其转换为序列化的 HTML
 
 
-// npm i to-vfile rehype-stringify remark-gfm remark-rehype rehype-pretty-code shiki rehype-autolink-headings npm install rehype-slug
+// npm i to-vfile rehype-stringify remark-gfm remark-rehype rehype-pretty-code shiki rehype-autolink-headings rehype-slug
 // process(await read("example.md")); 的 read 函数是基于根目录的，
 // 即package.json所在目录
 import rehypeStringify from "rehype-stringify";
@@ -400,12 +371,13 @@ export default async function Home() {
   return <div dangerouslySetInnerHTML={{ __html: c }} />;
 }
 
+
+
 // rehypeAddH2Class.ts，作用是添加样式
 import { visit } from "unist-util-visit";
 import type { Node } from "unist";
-import type { Element, Properties } from "hast"; // 导入 Properties 类型
+import type { Element, Properties } from "hast";
 
-// 扩展 Properties 接口，确保 className 是 string[] 类型
 interface ExtendedProperties extends Properties {
   className?: string[];
 }
@@ -415,25 +387,21 @@ export default function rehypeAddH2Class() {
     visit(tree, "element", (node: Element) => {
       if (node.tagName === "h2") {
         node.properties = node.properties || {};
-        // 将 properties 断言为 ExtendedProperties 以便安全地操作 className
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
         props.className.push("text-2xl py-2");
       } else if (node.tagName === "p") {
         node.properties = node.properties || {};
-        // 将 properties 断言为 ExtendedProperties 以便安全地操作 className
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
         props.className.push("text-xl");
       } else if (node.tagName === "li") {
         node.properties = node.properties || {};
-        // 将 properties 断言为 ExtendedProperties 以便安全地操作 className
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
         props.className.push("py-1.5");
       } else if (node.tagName === "a") {
         node.properties = node.properties || {};
-        // 将 properties 断言为 ExtendedProperties 以便安全地操作 className
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
         props.className.push("text-blue-600");
@@ -452,6 +420,14 @@ pre {
 
 pre [data-line] {
   padding: 0 1rem;
+}
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+/* 为所有标题设置滚动边距 */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: 56px; /* 你的偏移量 */
 }
 ```
 
