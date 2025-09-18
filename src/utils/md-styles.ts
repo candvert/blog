@@ -9,7 +9,12 @@ interface ExtendedProperties extends Properties {
 export default function rehypeAddH2Class() {
   return (tree: Node) => {
     visit(tree, "element", (node: Element) => {
-      if (node.tagName === "h2") {
+      if (node.tagName === "h1") {
+        node.properties = node.properties || {};
+        const props = node.properties as ExtendedProperties;
+        props.className = props.className || [];
+        props.className.push("text-2xl py-2");
+      } else if (node.tagName === "h2") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
@@ -18,7 +23,7 @@ export default function rehypeAddH2Class() {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("text-xl");
+        props.className.push("text-xl py-2");
       } else if (node.tagName === "li") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
@@ -29,6 +34,11 @@ export default function rehypeAddH2Class() {
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
         props.className.push("text-blue-600");
+      } else if (node.tagName === "img") {
+        node.properties = node.properties || {};
+        const props = node.properties as ExtendedProperties;
+        props.className = props.className || [];
+        props.className.push("py-2.5");
       }
     });
   };

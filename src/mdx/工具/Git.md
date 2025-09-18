@@ -27,11 +27,11 @@ ssh-keygen -t rsa -b 4096 -C "leiyue159@gmail.com"
 生成的密钥位于C:\Users\leiyu\.ssh\id_rsa.pub
 ```
 进入github的设置页
-![[git_01.png]]
+![](/images/git_01.png)
 添加密钥
-![[git_02.png]]
+![](/images/git_02.png)
 将之前生成的id_rsa.pub中的文本填入下图（Title可以随意取）
-![[git_03.png]]
+![](/images/git_03.png)
 在git配置文件中添加一条命令别名，作用是切换目录并执行git.sh
 ```sh
 cd

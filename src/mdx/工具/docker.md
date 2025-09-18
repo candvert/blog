@@ -25,7 +25,7 @@ https://docs.docker.com/engine/install/ubuntu/
 }
 ```
 ## 基本原理
-![](images/docker_1.png)
+![](/images/docker_1.png)
 ## 常用命令
 ```sh
 # 从仓库拉取镜像
@@ -90,10 +90,10 @@ docker volume inspect
 docker volume prune
 ```
 ## 构建镜像
-![](images/docker_3.png)
+![](/images/docker_3.png)
 
 
-![](images/docker_2.png)
+![](/images/docker_2.png)
 ```sh
 # 结尾的.代表Dockfile所在的目录
 docker build -t myImage:1.0 .

@@ -1,30 +1,30 @@
 ## 下载安装
 可以从microsoft store下载
-![[window_01.png]]
+![](/images/window_01.png)
 ## 修改默认设置
 之后windows上打开的命令行工具和powershell都会变为Windows Terminal。
 
 打开Windows Terminal之后按Ctrl + ,或点击下图的图标打开设置。
-![[window_02.png]]
+![](/images/window_02.png)
 
 
 
 修改透明度和半透明纹理
-![[window_03.png]]
-![[window_04.png]]
+![](/images/window_03.png)
+![](/images/window_04.png)
 效果：
-![[window_05.png]]
+![](/images/window_05.png)
 
 
 
 设置专注模式快捷键（即隐藏标题栏）
-![[window_06.png]]
-![[window_07.png]]
+![](/images/window_06.png)
+![](/images/window_07.png)
 
 
 
 设置启动时窗口大小
-![[window_08.png]]
+![](/images/window_08.png)
 
 
 ## 快捷键
