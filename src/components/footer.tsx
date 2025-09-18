@@ -1,3 +1,7 @@
 export function Footer() {
-  return <div className="h-20">b</div>;
+  return (
+    <footer className="bg-cyan-100 md:h-24 h-16 text-lg flex justify-center items-center">
+      <div className="">© Copyright 2025. All Rights Reserved.</div>
+    </footer>
+  );
 }

@@ -33,7 +33,7 @@ export default function rehypeAddH2Class() {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("text-blue-600");
+        props.className.push("text-blue-600 text-lg");
       } else if (node.tagName === "img") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;

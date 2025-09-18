@@ -34,9 +34,9 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <MainNav />
-            <div className="flex-1 flex">
+            <div className="md:flex-1 md:flex-row md:flex flex flex-col">
               <LeftSidebar />
-              <div className="px-20 overflow-x-hidden">
+              <div className="md:px-20 px-2 overflow-x-hidden my-4">
                 {children}
                 {/* <div className="w-64 overflow-auto scroll-smooth scrollbar-hide h-svh">
                 <div>right</div>
