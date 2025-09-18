@@ -34,7 +34,7 @@ export default function RootLayout({
           <MainNav />
           <div className="flex-1 flex">
             <LeftSidebar />
-            <div className="flex-1 px-20">
+            <div className="px-20 overflow-x-hidden">
               {children}
               {/* <div className="w-64 overflow-auto scroll-smooth scrollbar-hide h-svh">
                 <div>right</div>

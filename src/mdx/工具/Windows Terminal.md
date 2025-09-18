@@ -28,20 +28,20 @@
 
 
 ## 快捷键
-```
+```sh
 win + `                                            显示/隐藏Quark窗口
 ctrl + 滚轮                                         缩放字体
 F11                                                全屏
 ```
 ## oh-my-posh美化
 打开Windows Terminal后按win + x选择“终端管理员”。输入下列命令。
-```shell
+```sh
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 ```
 作用​​：允许运行本地脚本。
 
 通过下列命令验证是否生效。
-```shell
+```sh
 Get-ExecutionPolicy -List
 ```
 输出中CurrentUser应为RemoteSigned。
@@ -50,30 +50,30 @@ Get-ExecutionPolicy -List
 
 
 安装oh-my-posh
-```shell
+```sh
 winget install JanDeDobbeleer.OhMyPosh --source winget --scope user --force
 ```
 
 之后输入下列命令（默认使用的shell是powershell，如果是其他shell则要输入其他命令）
-```shell
+```sh
 New-Item -Path $PROFILE -Type File -Force
 notepad $PROFILE
 ```
 
 然后在记事本中输入下行文字
-```
+```sh
 oh-my-posh init pwsh | Invoke-Expression
 ```
 重启Windows Terminal之后便生效了。
 
 更换其他主题
-```
+```sh
 notepad $PROFILE
 ```
 然后在记事本中输入下行文字
-```
+```sh
 oh-my-posh init pwsh --config 'C:\Users\leiyu\AppData\Local\Programs\oh-my-posh\themes\M365Princess.omp.json' | Invoke-Expression
 ```
 M365Princess.omp.json是主题名，默认安装的主题可以在C:\Users\leiyu\AppData\Local\Programs\oh-my-posh\themes目录找到。
 主题预览可以前往https://ohmyposh.dev/docs/themes
-名称中带有minimal的主题不需要Nerd字体（Nerd字体需要另外安装，可以显示一些图标）。
+名称中带有minimal的主题不需要Nerd字体（Nerd字体需要另外安装，可以显示一些图标）

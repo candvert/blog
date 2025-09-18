@@ -41,5 +41,9 @@ export default async function Home({
   const c = await ok(
     path.join(process.cwd(), "src", "mdx", decodedDir, decodedFile)
   );
-  return <div dangerouslySetInnerHTML={{ __html: c }} />;
+  return (
+    <div className="">
+      <div dangerouslySetInnerHTML={{ __html: c }} />
+    </div>
+  );
 }

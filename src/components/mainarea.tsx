@@ -30,8 +30,8 @@ async function ok(filename: string) {
 
 export function MainArea() {
   return (
-    <div className="flex-1">
-      <div className="">ok</div>
+    <div className="overflow-x-hidden">
+      <div className="">点击左侧文件开始阅读</div>
     </div>
   );
 }
