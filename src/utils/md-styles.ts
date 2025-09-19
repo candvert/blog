@@ -13,22 +13,22 @@ export default function rehypeAddH2Class() {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("text-2xl py-2.5");
+        props.className.push("text-2xl py-2.5 md:text-lg");
       } else if (node.tagName === "h2") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("text-2xl py-2.5");
+        props.className.push("text-2xl py-2.5 md:text-lg");
       } else if (node.tagName === "p") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("text-xl py-2.5");
+        props.className.push("text-xl py-2.5 md:text-lg");
       } else if (node.tagName === "li") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
         props.className = props.className || [];
-        props.className.push("py-1.5");
+        props.className.push("py-1.5 md:text-lg");
       } else if (node.tagName === "a") {
         node.properties = node.properties || {};
         const props = node.properties as ExtendedProperties;
