@@ -5,6 +5,7 @@ import { MainNav } from "@/components/mainnav";
 import LeftSidebar from "@/components/LeftSidebar";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "next-themes";
+import BackToTop from "@/components/backToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
             </div>
             <Footer />
           </div>
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

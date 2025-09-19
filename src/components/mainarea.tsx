@@ -8,7 +8,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { read } from "to-vfile";
 import { unified } from "unified";
 import rehypeAddH2Class from "@/utils/md-styles";
-import Image from "next/image";
 
 const prettyCodeOptions: Options = {
   theme: "github-dark",
@@ -33,7 +32,7 @@ export function MainArea() {
   return (
     <div className="">
       <div className="pt-8 text-2xl text-gray-600 font-bold">
-        点击左侧文件开始阅读
+        点击文件开始阅读
       </div>
     </div>
   );
