@@ -40,7 +40,7 @@ export async function generateStaticParams() {
     
     return fileNames.map((fileName) => ({
       dir: dirName,    // 匹配 [dir] 段
-      file: fileName   // 匹配 [file] 段
+      file: path.basename(fileName)   // 匹配 [file] 段
     }));
   });
 
