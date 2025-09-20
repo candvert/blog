@@ -12,7 +12,10 @@ import path from "path";
 import { filesName } from "@/utils/get-mdx-filenames";
 
 const prettyCodeOptions: Options = {
-  theme: "github-dark",
+  theme: {
+    dark: "monokai",
+    light: "catppuccin-latte",
+  },
 };
 
 async function ok(filename: string) {
