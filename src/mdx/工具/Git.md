@@ -33,6 +33,13 @@ ssh-keygen -t rsa -b 4096 -C "leiyue159@gmail.com"
 ![](/images/git_02.png)
 将之前生成的id_rsa.pub中的文本填入下图（Title可以随意取）
 ![](/images/git_03.png)
+
+设置全局代理
+```sh
+需要注意该设置默认你开启了Clash，若没有开启Clash会出错
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
+```
 在git配置文件中添加一条命令别名，作用是切换目录并执行git.sh
 ```sh
 cd
@@ -48,14 +55,6 @@ git add .
 git commit -m "a"
 git push
 ```
-有时 git push 会失败，若出错消息是 ssh，则在密钥所在目录创建一个 config 文件，并写入下面内容。作用是通过 HTTPS 端口进行 SSH 连接
-```sh
-Host github.com
-  HostName ssh.github.com
-  Port 443
-  User git
-  IdentityFile C:\Users\leiyu\.ssh\id_rsa   # 替换为你的私钥路径
-```
 ## 设置全局代理
 ```sh
 需要注意该设置默认你开启了Clash，若没有开启Clash会出错
@@ -68,6 +67,7 @@ git config --global https.proxy http://127.0.0.1:7890
 git init
 git add .
 git commit -m "comment"
+
 
 git remote add origin git@github.com:candvert/Schedule.git
 git branch -M main

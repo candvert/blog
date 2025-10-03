@@ -1,5 +1,5 @@
 - [配置文件](#配置文件)
-- [安装Neovim](#安装Neovim)
+- [配置文件相关命令](#配置文件相关命令)
 - [安装插件管理器](#安装插件管理器)
 - [自动补全插件](#自动补全插件)
 - [LSP服务器端配置](#LSP服务器端配置)
@@ -30,6 +30,7 @@
 	- [none-ls](#none-ls)
 	- [lspsaga.nvim](#lspsaga.nvim)
 	- [toggleterm.nvim](#toggleterm.nvim)
+	- [auto-save.nvim](#auto-save.nvim)
 配置完成之后每增加一门语言的支持就要进行下面三项。
 一个是 LSP 服务器，提供代码提示等功能。通过 Mason 插件安装。命令为 :Mason。
 一个是语法解析器，提供语法高亮等功能。通过修改 nvim-treesitter 配置文件安装。
@@ -55,11 +56,7 @@ nvim
 			- nvim_tree.lua
 			- ...
 ```
-## 安装Neovim
-```sh
-Window上：
-winget install Neovim.Neovim
-```
+## 配置文件相关命令
 在安装完成之后，可以在终端使用 nvim 命令进入 nvim，然后输入下面命令创建 init.lua
 ```sh
 :exe 'edit' stdpath('config') .. '/init.lua'
@@ -181,6 +178,14 @@ return {
 				on_dir(project_root)
 			end,
 		}
+
+
+		-- 启用 rust_analyzer 的嵌入提示（即以灰色字体提示类型）
+        vim.lsp.config['rust_analyzer'] = {
+            on_attach = function(client, bufnr)
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end
+        }
 	end,
 }
 ```
@@ -239,6 +244,9 @@ JetBrainsMonoNerdFontMono-Medium.ttf
 JetBrainsMonoNerdFontMono-MediumItalic.ttf
 JetBrainsMonoNerdFontMono-Bold.ttf
 JetBrainsMonoNerdFontMono-BoldItalic.ttf
+
+安装完之后需要在 Windows Terminal 的设置中更换字体
+![](/images/neovim_02.png)
 ## 语法高亮
 首先需要安装 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)，主要功能是进行语法分析，生成语法树。之后便可以通过其他插件进行语法高亮。
 新增 plugins/treesitter.lua 文件
@@ -269,7 +277,14 @@ return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	opts = {},
+	-- 将背景设置为透明
+	--opts = {
+	--	transparent = true,
+	--	styles = {
+	--		sidebars = "transparent",
+	--		floats = "transparent",
+	--	},
+	--},
 }
 ```
 在 init.lua 文件里面设置主题
@@ -610,6 +625,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	event = "VeryLazy",
     keys = {
+		-- 设置按键 <leader>lf 格式化代码
         { "<leader>lf", vim.lsp.buf.format },
     },
 	config = function()
@@ -673,5 +689,17 @@ return {
 			--},
 		})
 	end,
+}
+```
+## auto-save.nvim
+```lua
+return {
+  "okuuva/auto-save.nvim",
+  version = '^1.0.0',
+  cmd = "ASToggle",
+  event = { "InsertLeave", "TextChanged" },
+  opts = {
+    debounce_delay = 500,
+  },
 }
 ```

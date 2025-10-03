@@ -6,12 +6,11 @@
 - [npm的常用命令](#npm的常用命令)
 - [npm的其他命令](#npm的其他命令)
 
-npm 是 nodejs 的内置包管理工具，但是是不同组织开发的。
+npm 是 nodejs 的内置包管理工具
 ## 主要功能
-下载和安装别人写的 JavaScript 库/工具。
-管理项目依赖。
-运行脚本（如启动项目、构建、测试）。
-发布自己的包到 npm 仓库。
+下载、管理项目依赖
+运行脚本（如启动项目、构建、测试）
+发布自己的包到 npm 仓库
 ## package.json是什么
 package.json 是一个 JSON 格式的配置文件，用来描述一个 Node.js 项目的基本信息和依赖。
 主要内容：
@@ -50,8 +49,12 @@ package-lock.json 是 npm 自动生成和维护的文件（不需要开发者编
 如果没有 lock 文件，则根据 package.json 的依赖规则来安装，并生成新的 package-lock.json。
 ## npm的常用命令
 ```shell
+# 创建 nextjs 项目
+npx create-next-app@latest
 # 查看版本
 npm -v
+# 更新版本
+npm install -g npm@latest
 # 初始化项目，生成一个 package.json 文件（-y 表示用默认值）
 npm init -y
 # 安装依赖
@@ -60,6 +63,8 @@ npm i <包名>
 npm i <包名>@1.12.3
 # 安装最新版本的依赖
 npm i <包名>latest
+# 安装生产依赖
+npm i <包名> --save
 # 安装开发依赖，只在开发环境用，不会打包到生产环境
 npm i <包名> --save-dev
 npm i -D <包名>    # -D是--save-dev的简写
